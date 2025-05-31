@@ -47,7 +47,7 @@ Begin DesktopWindow MainWindow
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Modified"
+      Text            =   "#Strings.Modified"
       TextAlignment   =   3
       TextColor       =   &c000000
       Tooltip         =   ""
@@ -160,7 +160,7 @@ Begin DesktopWindow MainWindow
          Index           =   -2147483648
          InitialParent   =   "cnvDropFile"
          Italic          =   False
-         Left            =   68
+         Left            =   63
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -172,7 +172,7 @@ Begin DesktopWindow MainWindow
          TabIndex        =   0
          TabPanelIndex   =   0
          TabStop         =   True
-         Text            =   "or \n\nDrag and drop into here"
+         Text            =   "#Strings.DragAndDrop"
          TextAlignment   =   2
          TextColor       =   &c000000
          Tooltip         =   ""
@@ -180,13 +180,13 @@ Begin DesktopWindow MainWindow
          Transparent     =   True
          Underline       =   False
          Visible         =   True
-         Width           =   249
+         Width           =   260
       End
       Begin DesktopButton btnSelectFIle
          AllowAutoDeactivate=   True
          Bold            =   False
          Cancel          =   False
-         Caption         =   "Select a File"
+         Caption         =   "#Strings.SelectFile"
          Default         =   False
          Enabled         =   True
          FontName        =   "System"
@@ -196,11 +196,11 @@ Begin DesktopWindow MainWindow
          Index           =   -2147483648
          InitialParent   =   "cnvDropFile"
          Italic          =   False
-         Left            =   132
+         Left            =   115
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
-         LockRight       =   False
+         LockRight       =   True
          LockTop         =   True
          MacButtonStyle  =   0
          Scope           =   2
@@ -212,7 +212,7 @@ Begin DesktopWindow MainWindow
          Transparent     =   False
          Underline       =   False
          Visible         =   True
-         Width           =   121
+         Width           =   155
       End
       Begin DesktopListBox FileDetailsList
          AllowAutoDeactivate=   True
@@ -316,7 +316,7 @@ Begin DesktopWindow MainWindow
       TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Created"
+      Text            =   "#Strings.Created"
       TextAlignment   =   3
       TextColor       =   &c000000
       Tooltip         =   ""
@@ -360,7 +360,7 @@ Begin DesktopWindow MainWindow
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
-      Caption         =   "Change File Date"
+      Caption         =   "#Strings.ChangeFileDate"
       Default         =   True
       Enabled         =   False
       FontName        =   "System"
@@ -495,26 +495,26 @@ End
 		  // File Details in Listbox
 		  FileDetailsList.ColumnAlignmentAt(0)= DesktopListBox.Alignments.Right
 		  FileDetailsList.RemoveAllRows
-		  FileDetailsList.AddRow ("Filename")
+		  FileDetailsList.AddRow (Strings.Filename)
 		  FileDetailsList.CellBoldAt(FileDetailsList.LastAddedRowIndex,0) = True
 		  FileDetailsList.CellTextAt(0,1) = f.Name
-		  FileDetailsList.AddRow ("Path")
+		  FileDetailsList.AddRow (Strings.Path)
 		  FileDetailsList.CellBoldAt(FileDetailsList.LastAddedRowIndex,0) = True
 		  FileDetailsList.CellTextAt(FileDetailsList.LastAddedRowIndex,1) = f.NativePath
 		  FileDetailsList.CellTooltipAt(FileDetailsList.LastAddedRowIndex,1) = f.NativePath
 		  
 		  // Do not display file size for folders
 		  If Not f.IsFolder Then
-		    FileDetailsList.AddRow ("Filesize")
+		    FileDetailsList.AddRow (Strings.Filesize)
 		    FileDetailsList.CellBoldAt(FileDetailsList.LastAddedRowIndex,0) = True
 		    FileDetailsList.CellTextAt(FileDetailsList.LastAddedRowIndex,1) = GetFileSize(f)
 		  End If
 		  
-		  FileDetailsList.AddRow ("Created")
+		  FileDetailsList.AddRow (Strings.Created)
 		  FileDetailsList.CellBoldAt(FileDetailsList.LastAddedRowIndex,0) = True
 		  FileDetailsList.CellTextAt(FileDetailsList.LastAddedRowIndex,1) = f.CreationDateTime.ToString
 		  
-		  FileDetailsList.AddRow ("Modified")
+		  FileDetailsList.AddRow (Strings.Modified)
 		  FileDetailsList.CellBoldAt(FileDetailsList.LastAddedRowIndex,0) = True
 		  FileDetailsList.CellTextAt(FileDetailsList.LastAddedRowIndex,1) = f.ModificationDateTime.ToString
 		  
@@ -660,20 +660,20 @@ End
 		  // Create a ContextualMenu
 		  Var popMenu As New DesktopMenuItem
 		  
-		  popMenu.AddMenu(New DesktopMenuItem ("Same as modified"))
-		  popMenu.AddMenu(New DesktopMenuItem ("Reset"))
+		  popMenu.AddMenu(New DesktopMenuItem (Strings.SameAsModified))
+		  popMenu.AddMenu(New DesktopMenuItem (Strings.Reset))
 		  
 		  Var selectedMenu As DesktopMenuItem
 		  selectedMenu = popMenu.Popup
 		  
 		  If selectedMenu <> Nil Then
 		    
-		    If selectedMenu.Text = "Same as modified" Then
+		    If selectedMenu.Text = Strings.SameAsModified Then
 		      edtCreatedDate.SelectedDate = edtModifiedDate.SelectedDate
 		      chkCreated.Value = True
 		    End If
 		    
-		    If selectedMenu.Text = "Reset" Then
+		    If selectedMenu.Text = Strings.Reset Then
 		      edtCreatedDate.SelectedDate = CurrentFile.CreationDateTime
 		      chkCreated.Value = False
 		    End If
@@ -688,20 +688,20 @@ End
 		  // Create a ContextualMenu
 		  Var popMenu As New DesktopMenuItem
 		  
-		  popMenu.AddMenu(New DesktopMenuItem ("Same as created"))
-		  popMenu.AddMenu(New DesktopMenuItem ("Reset"))
+		  popMenu.AddMenu(New DesktopMenuItem (Strings.SameAsCreated))
+		  popMenu.AddMenu(New DesktopMenuItem (Strings.Reset))
 		  
 		  Var selectedMenu As DesktopMenuItem
 		  selectedMenu = popMenu.Popup
 		  
 		  If selectedMenu <> Nil Then
 		    
-		    If selectedMenu.Text = "Same as created" Then
+		    If selectedMenu.Text = Strings.SameAsCreated Then
 		      edtModifiedDate.SelectedDate = edtCreatedDate.SelectedDate
 		      chkModified.Value = True
 		    End If
 		    
-		    If selectedMenu.Text = "Reset" Then
+		    If selectedMenu.Text = Strings.Reset Then
 		      edtModifiedDate.SelectedDate = CurrentFile.ModificationDateTime
 		      chkModified.Value = False
 		    End If

@@ -1,6 +1,15 @@
 #tag Class
 Protected Class App
 Inherits DesktopApplication
+	#tag Event
+		Sub DocumentOpened(item As FolderItem)
+		  If item <> Nil And item.exists Then
+		    MainWindow.DropAction(item)
+		  End If
+		End Sub
+	#tag EndEvent
+
+
 	#tag MenuHandler
 		Function FileOpen() As Boolean Handles FileOpen.Action
 		  Var dialog As OpenFileDialog
@@ -46,15 +55,17 @@ Inherits DesktopApplication
 
 
 	#tag Note, Name = ReadMe
-		Easy File Date Changer (Easy FDC) by Wolfgang Schwarz, Donauwoerth, Germany
+		Easy File Date Changer (Easy FDC) - Developed by Wolfgang Schwarz, Germany
+		
 		A simple program to change the file creation and modification date of a file.
 		
-		Programmed with Xojo (https://www.xojo.com)
+		Written in Xojo (https://www.xojo.com)
+		
+		For more information, visit: https://github.com/woschwarz
 		
 	#tag EndNote
 
 	#tag Note, Name = ToDo
-		- Multi Language Support
 		- Support for mutltiple files
 		
 	#tag EndNote

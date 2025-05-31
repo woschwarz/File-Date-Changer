@@ -3,14 +3,14 @@ Begin Menu MainMenuBar
    Begin DesktopMenuItem FileMenu
       SpecialMenu = 0
       Index = -2147483648
-      Text = "&File"
+      Text = "#Strings.File"
       AutoEnabled = True
       AutoEnable = True
       Visible = True
       Begin DesktopMenuItem FileOpen
          SpecialMenu = 0
          Index = -2147483648
-         Text = "Open..."
+         Text = "#Strings.Open"
          ShortcutKey = "O"
          Shortcut = "Cmd+O"
          MenuModifier = True
@@ -40,7 +40,7 @@ Begin Menu MainMenuBar
    Begin DesktopMenuItem EditMenu
       SpecialMenu = 0
       Index = -2147483648
-      Text = "&Edit"
+      Text = "#Strings.Edit"
       AutoEnabled = True
       AutoEnable = True
       Visible = True
@@ -127,7 +127,7 @@ Begin Menu MainMenuBar
    Begin DesktopMenuItem WindowMenu
       SpecialMenu = 0
       Index = -2147483648
-      Text = "Window"
+      Text = "#Strings.Window"
       AutoEnabled = True
       AutoEnable = True
       Visible = True
@@ -135,14 +135,14 @@ Begin Menu MainMenuBar
    Begin DesktopMenuItem HelpMenu
       SpecialMenu = 0
       Index = -2147483648
-      Text = "&Help"
+      Text = "#Strings.Help"
       AutoEnabled = True
       AutoEnable = True
       Visible = True
       Begin DesktopMenuItem HelpSupport
          SpecialMenu = 0
          Index = -2147483648
-         Text = "Support"
+         Text = "#Strings.Support"
          AutoEnabled = True
          AutoEnable = True
          Visible = True
@@ -158,7 +158,7 @@ Begin Menu MainMenuBar
       Begin DesktopMenuItem HelpAbout
          SpecialMenu = 0
          Index = -2147483648
-         Text = "About"
+         Text = "#Strings.About"
          AutoEnabled = True
          AutoEnable = True
          Visible = True
